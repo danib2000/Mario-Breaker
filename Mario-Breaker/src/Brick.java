@@ -60,6 +60,10 @@ public class Brick extends Thread {
 		 {
 			//System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",this.x, this.y, b.getX(), b.getY() ));
 			this.isHit=true;
+			panel.incScoreMultiplayer();
+			panel.addScore(10);
+			System.out.println(panel.getScoreMultiplayer());
+			System.out.println("score:"+panel.getScore());
 			b.setDirAfterHitBrick(this);
 			 //System.exit(0);
 		 }

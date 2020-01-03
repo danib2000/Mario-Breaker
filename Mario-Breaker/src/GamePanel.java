@@ -18,6 +18,8 @@ public class GamePanel extends JPanel {
 	private Image backGroundImage;
 	private BreakerBall bBall;
 	private Brick[][] bricks;
+	private int score;
+	private int scoreMultiplayer;
 	public GamePanel()
 	{
 		ImageIcon ii = new ImageIcon("background.jpg");
@@ -25,7 +27,8 @@ public class GamePanel extends JPanel {
 		player = new Player(0,getScreenHeight()-80, 300, 100, this);
 		bBall = new BreakerBall(player.getX()+player.getWidth(),player.getY()-100, 100, 50, this);
 		bricks = new Brick[5][8];
-		
+		score=0;
+		scoreMultiplayer = 0;
 		int y=10;
 		//int x=10;
 		/*
@@ -97,6 +100,13 @@ public class GamePanel extends JPanel {
 	public Brick[][] getBricks() {return this.bricks;}
 	public Player getPlayer() { return this.player;}
 	public BreakerBall getBall() {return this.bBall;}
+	public int getScore() {return this.score;}
+	public void incScoreMultiplayer() {this.scoreMultiplayer++;}
+	public void setDefaultScoreMultiplayer() {this.scoreMultiplayer=0;}
+	public int getScoreMultiplayer() {return this.scoreMultiplayer;}
+	public void addScore(int s) {
+		this.score += s * scoreMultiplayer;
+	}
 	/**
 	 * get screen dimension
 	 * @return an Dimension object

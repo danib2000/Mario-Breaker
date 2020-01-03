@@ -14,6 +14,7 @@ public class BreakerBall  extends Thread {
 	private int width;
 	private int height;
 	private boolean isStarted; 
+	private boolean hitPlayer;
 	private int dirx;
 	private int diry;
 	
@@ -27,6 +28,7 @@ public class BreakerBall  extends Thread {
 		ballImage = ii.getImage();
 		this.panel = panel;
 		isStarted = false;
+		hitPlayer = true;
 		dirx=1;
 		diry=-1;
 		
@@ -51,15 +53,18 @@ public class BreakerBall  extends Thread {
 	public void startBall() { 
 		this.isStarted=true;
 		this.start();}
-
-	
+	public boolean hitPlayer() { return this.hitPlayer;}
+	public void changeHitPlayer() {this.hitPlayer= !this.hitPlayer; }
 	
 	public void hitPlayer(Player p) { 
+
+		
 		if(this.y + height >= p.getY() && this.y + height <= p.getY()+p.getHeight() &&(this.x >= p.getX() && this.x<=p.getX()+p.getWidth()))
 		{
 			
 
 			setDirAfterHitPlayer(p);
+			panel.setDefaultScoreMultiplayer();
 			System.out.println("right corner");
 			
 		}
@@ -68,6 +73,7 @@ public class BreakerBall  extends Thread {
 		if((this.y + height >= p.getY() && this.y + height <= p.getY()+p.getHeight()) &&(this.x + width >= p.getX() && this.x + width <= p.getX() + +p.getWidth()))
 		{
 			setDirAfterHitPlayer(p);
+			panel.setDefaultScoreMultiplayer();
 			System.out.println("left corner");
 		}
 	}
@@ -86,34 +92,34 @@ public class BreakerBall  extends Thread {
 			{
 				this.dirx = 1;
 				this.diry = -1;
-				System.out.println("left after middle ");
+				//System.out.println("left after middle ");
 				
 			}
 			if(this.x > ((length/2)  + playerX))
 			{
 				this.dirx = -1;
 				this.diry = -1;
-				System.out.println("right after middle ");
+				//System.out.println("right after middle ");
 			}
 		}
 		if(this.x < (length/3 + playerX))
 		{
 			this.dirx = 1;
 			this.diry = -1;
-			System.out.println("left ");
+			//System.out.println("left ");
 			
 		}
 		if((this.x > length/3 + playerX) && (this.x < (length/3) * 2 + playerX))
 		{
 			this.dirx = 0;
 			this.diry = -1;
-			System.out.println("middle ");
+			//System.out.println("middle ");
 		}
 		if(this.x > ((length/3) * 2 + playerX))
 		{
 			this.dirx = -1;
 			this.diry = -1;
-			System.out.println("right ");
+			//System.out.println("right ");
 		}
 	}
 	/**
@@ -125,7 +131,6 @@ public class BreakerBall  extends Thread {
 		//bugs 
 		//hit 2 bricks - the ball will keep going up
 		//hit the sides 
-		System.out.println("asdasd");
 //		if(b.getY() + b.getHeight() == this.y) //bottom
 //		{
 //			System.out.println("bottom");
