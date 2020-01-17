@@ -146,18 +146,13 @@ public class BreakerBall  extends Thread {
 //		{
 //			System.out.println("sides");
 //		}
+		
+		
+		
+		
 		this.diry = this.diry*-1;
 	}
 	
-	/**
-	 *  calculate the distance between A and B with pythagoras theorem
-	 * @param a 
-	 * @param b
-	 * @return the distance 
-	 */
-	public  double distance(int a,int b){
-		return Math.sqrt(Math.pow(a,2.0)+Math.pow(b,2.0));
-	}
 	
 	public void run()
 	{
