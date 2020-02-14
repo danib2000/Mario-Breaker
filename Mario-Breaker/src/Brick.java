@@ -52,10 +52,15 @@ public class Brick extends Thread {
 	public boolean isHit() {return this.isHit;}
 	private void hitBrick(BreakerBall b)
 	{
-		
+		boolean c = CollusionHandler.DidCollusion(b,this);
+		 if(c) {
+			 System.out.println("asd");
+
+			 System.out.println(CollusionHandler.getLastDir());
+		 }
 		 Rectangle brickRec = new Rectangle(this.x, this.y, this.width, this.height);
 		 Rectangle ballkRec = new Rectangle(b.getX(), b.getY(), b.getWidth(), b.getHeight());
-		 
+
 		 if(ballkRec.intersects(brickRec) && !this.isHit && this.hitFlag)
 		 {
 			//System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",this.x, this.y, b.getX(), b.getY() ));
@@ -82,8 +87,9 @@ public class Brick extends Thread {
 		while(true)
 		{
 		    try {
+
 		    		hitBrick(this.panel.getBall());	
-		    		Thread.sleep(100);
+		    		Thread.sleep(10);
 		      } 
 		    catch (Exception e) {
 			// TODO Auto-generated catch block
