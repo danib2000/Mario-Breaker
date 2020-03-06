@@ -146,9 +146,9 @@ public class BreakerBall  extends Thread {
 //		{
 //			System.out.println("sides");
 //		}
-		
-		
-		
+		System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",b.getX(), b.getY(), this.getX(), this.getY() ));
+
+	
 		
 		this.diry = this.diry*-1;
 	}

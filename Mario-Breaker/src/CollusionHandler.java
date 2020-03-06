@@ -33,26 +33,59 @@ public class CollusionHandler {
 //				ball.getY() <= (brick.getY() +brick.getHeight()) ){
 			 
 
-			//check if the Y coordinate of the ball is equal to the Y coordinate of the bottom of the brick
-			if(ball.getY() == (brick.getY() + brick.getHeight())) {
-				System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",brick.getX(), brick.getY()+ brick.getHeight(), ball.getX(), ball.getY() ));
+//			//check if the Y coordinate of the ball is equal to the Y coordinate of the bottom of the brick
+//			if(ball.getY() == (brick.getY() + brick.getHeight())) {
+//				//System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",brick.getX(), brick.getY()+ brick.getHeight(), ball.getX(), ball.getY() ));
+//				
+//				//check if top left corner of the ball is within the the border of the brick
+//				if(ball.getX() >= brick.getX() &&
+//						ball.getX() <= brick.getX() + brick.getWidth()){
+//					lastDir = Direction.bottom;
+//					return true;
+//					
+//				}
+//				//check if top right corner  is within the the border of the brick
+//				if(ball.getX() + ball.getWidth() >= brick.getX() &&
+//						ball.getX()+ball.getWidth() <= brick.getX() + brick.getWidth()) {
+//					lastDir = Direction.bottom;
+//					return true;
+//					
+//				}
+//			}
+//			//check if the Y coordinate of the ball is equal to the Y coordinate of the top of the brick
+//
+//			if(ball.getY() == brick.getY()) {
+//				
+//				//check if left corner of the ball is within the the border of the brick
+//				if(ball.getX() >= brick.getX() &&
+//						ball.getX() <= brick.getX() + brick.getWidth()){
+//					lastDir = Direction.top;
+//					return true;
+//					
+//				}
+//				//check if right corner  is within the the border of the brick
+//				if(ball.getX() + ball.getWidth() >= brick.getX() &&
+//						ball.getX()+ball.getWidth() <= brick.getX() + brick.getWidth()) {
+//					lastDir = Direction.top;
+//					return true;
+//					
+//				}
+//			}
+			
+				//check if the ball is within the size of the brick
+			if(ball.getY() < brick.getY() && ball.getY() > brick.getY() + brick.getHeight() ) {
 				
-				//check if top left corner of the ball is within the the border of the brick
-				if(ball.getX() >= brick.getX() &&
-						ball.getX() <= brick.getX() + brick.getWidth()){
-					lastDir = Direction.bottom;
+				//check if right side of the ball is withing the left side of the brick
+				if(ball.getX() < brick.getX() + brick.getWidth()) {
+					lastDir = Direction.sides;
 					return true;
-					
 				}
-				//check if top right corner  is within the the border of the brick
-				if(ball.getX() + ball.getWidth() >= brick.getX() &&
-						ball.getX()+ball.getWidth() <= brick.getX() + brick.getWidth()) {
-					lastDir = Direction.bottom;
+				//check if left side of the ball is withing the right side of the brick
+				if(ball.getX()+ball.getWidth() > brick.getX()) {
+					lastDir = Direction.sides;
 					return true;
-					
 				}
 			}
-			
 		//}
 			
 			return false;

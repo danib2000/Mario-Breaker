@@ -25,7 +25,7 @@ public class GamePanel extends JPanel {
 		ImageIcon ii = new ImageIcon("background.jpg");
 		backGroundImage = ii.getImage();
 		player = new Player(0,getScreenHeight()-80, 300, 100, this);
-		bBall = new BreakerBall(player.getX()+player.getWidth(),player.getY()-100, 100, 50, this);
+		bBall = new BreakerBall(player.getX()+player.getWidth(),player.getY()-100, 50, 30, this);
 		bricks = new Brick[5][8];
 		score=0;
 		scoreMultiplayer = 0;

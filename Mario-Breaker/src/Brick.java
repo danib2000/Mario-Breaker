@@ -54,7 +54,7 @@ public class Brick extends Thread {
 	{
 		boolean c = CollusionHandler.DidCollusion(b,this);
 		 if(c) {
-			 System.out.println("asd");
+			 //System.out.println("asd");
 
 			 System.out.println(CollusionHandler.getLastDir());
 		 }
@@ -64,6 +64,7 @@ public class Brick extends Thread {
 		 if(ballkRec.intersects(brickRec) && !this.isHit && this.hitFlag)
 		 {
 			//System.out.println(String.format("brick.x: %d, brick.y: %d, ball.x: %d, ball.y: %d",this.x, this.y, b.getX(), b.getY() ));
+			System.out.println(CollusionHandler.getLastDir());
 			this.hitFlag= false;
 			this.isHit=true;
 			panel.incScoreMultiplayer();

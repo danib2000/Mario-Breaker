@@ -46,6 +46,8 @@ public class Player extends Thread {
 	 */
 	public void drawPlayer(Graphics g){
 		g.drawImage(playerImage, x,y, width, height, null);
+		g.setColor(Color.red);
+		g.drawRect(x, y, width, height);
 	}
 	
 	
